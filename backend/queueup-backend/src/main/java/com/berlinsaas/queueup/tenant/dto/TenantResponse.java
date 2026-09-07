@@ -17,7 +17,7 @@ public record TenantResponse(
         return new TenantResponse(
                 tenant.getId(),
                 tenant.getBusinessName(),
-                tenant.getOwner(),
+                tenant.getOwnerName(),
                 tenant.getBusinessEmail(),
                 tenant.getCreatedAt()
         );

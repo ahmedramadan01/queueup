@@ -19,7 +19,7 @@ public class TenantController {
         this.tenantService = tenantService;
     }
 
-    @PostMapping
+    @PostMapping("/auth/register")
     @ResponseStatus(HttpStatus.CREATED)
     public TenantResponse create(
             @Valid @RequestBody CreateTenantRequest request

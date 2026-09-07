@@ -7,14 +7,19 @@ import jakarta.validation.constraints.NotBlank;
 public record CreateTenantRequest(
 
         @NotBlank
-        String name,
+        String businessName,
 
         @NotBlank
-        String owner,
+        String ownerName,
 
         @NotBlank
         @Email
-        String contactEmail
+        String businessEmail,
+
+        @NotBlank
+        String password,
+
+        @NotBlank String confirmPassword
 
 ) {
 }
