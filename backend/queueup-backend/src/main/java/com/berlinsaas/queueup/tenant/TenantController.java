@@ -1,8 +1,10 @@
 package com.berlinsaas.queueup.tenant;
 
 import com.berlinsaas.queueup.tenant.dto.CreateTenantRequest;
+import com.berlinsaas.queueup.tenant.dto.LoginTenantRequest;
 import com.berlinsaas.queueup.tenant.dto.TenantResponse;
 import jakarta.validation.Valid;
+import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +29,12 @@ public class TenantController {
         return tenantService.create(request);
     }
 
+    @PostMapping("/auth/login")
+    public TenantResponse login(@Valid @RequestBody LoginTenantRequest request){
+
+        return tenantService.loginTenant(request);
+    }
+
     @GetMapping("/{id}")
     public TenantResponse getById(
             @PathVariable UUID id
@@ -34,7 +42,7 @@ public class TenantController {
         return tenantService.getById(id);
     }
 
-    @GetMapping
+    @GetMapping("/superAdmin")
     public List<TenantResponse> getAll() {
         return tenantService.getAll();
     }

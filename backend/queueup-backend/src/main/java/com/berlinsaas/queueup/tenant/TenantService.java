@@ -2,7 +2,9 @@ package com.berlinsaas.queueup.tenant;
 
 
 import com.berlinsaas.queueup.tenant.dto.CreateTenantRequest;
+import com.berlinsaas.queueup.tenant.dto.LoginTenantRequest;
 import com.berlinsaas.queueup.tenant.dto.TenantResponse;
+import jakarta.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,13 +26,11 @@ public class TenantService {
 
     @Transactional
     public TenantResponse create(CreateTenantRequest request) {
-
         if (tenantRepository.existsByBusinessEmail(request.businessEmail())) {
             throw new IllegalArgumentException(
                     "A tenant with this contact email already exists"
             );
         }
-
         if(!request.password().equals(request.confirmPassword())) {
             throw new IllegalArgumentException("Passwords do not match");
         }
@@ -69,5 +69,9 @@ public class TenantService {
                 .stream()
                 .map(TenantResponse::from)
                 .toList();
+    }
+
+    public TenantResponse loginTenant(@Valid LoginTenantRequest request) {
+        return null;
     }
 }
