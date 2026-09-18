@@ -1,4 +1,11 @@
 .idea/
+backend/queueup-backend/target/
+backend/queueup-backend/.idea/
+backend/queueup-backend/.mvn/
+backend/queueup-backend/HELP.md
+
 
 frontend/.vite/deps/
+frontend/README.md
 node_modules/
+frontend/.env
