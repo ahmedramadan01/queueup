@@ -1,3 +1,4 @@
 .idea/
 
+frontend/.vite/deps/
 node_modules/
